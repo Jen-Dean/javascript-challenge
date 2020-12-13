@@ -30,18 +30,27 @@ function runEnter() {
     var filteredData = tableData.filter(person => person.datetime === inputValue);
     console.log(filteredData);
 
-    tableData.map(function (item) {
-        return item;
-    });
 
-    // filteredData.forEach((item) => {
-    //     var row = tbody.append("tr");
-    //     Object.entries(item).forEach(([key, value]) => {
-    //         var cell = row.append("td");
-    //         cell.text(value);
-    //     });
-    // });
+    if (inputValue) {
+        tbody.html("");
 
+        filteredData.forEach((item) => {
+            var row = tbody.append("tr");
+            Object.entries(item).forEach(([key, value]) => {
+                var cell = row.append("td");
+                cell.text(value);
+            });
+        });
+    } else {
+        tbody.html("");
 
+        tableData.forEach((item) => {
+            var row = tbody.append("tr");
+            Object.entries(item).forEach(([key, value]) => {
+                var cell = row.append("td");
+                cell.text(value);
+            });
+        });
+    }
 }
 
