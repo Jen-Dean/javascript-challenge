@@ -5,7 +5,7 @@ var tableElement = d3.select("#ufo-table")
 var tbody = d3.select("tbody")
 
 
-data.forEach((item) => {
+tableData.forEach((item) => {
     var row = tbody.append("tr");
     Object.entries(item).forEach(([key, value]) => {
         var cell = row.append("td");
@@ -25,3 +25,23 @@ form.on("submit", runEnter);
 function runEnter() {
     d3.event.preventDefault();
     var inputElement = d3.select("#datetime");
+    var inputValue = inputElement.property("value");
+    console.log(inputValue);
+    var filteredData = tableData.filter(person => person.datetime === inputValue);
+    console.log(filteredData);
+
+    tableData.map(function (item) {
+        return item;
+    });
+
+    // filteredData.forEach((item) => {
+    //     var row = tbody.append("tr");
+    //     Object.entries(item).forEach(([key, value]) => {
+    //         var cell = row.append("td");
+    //         cell.text(value);
+    //     });
+    // });
+
+
+}
+
